@@ -75,5 +75,5 @@ Dưới đây là minh họa dữ liệu thực tế được trích xuất từ
 *(Ghi chú: Hình ảnh trích xuất từ lệnh SELECT thực tế trong Terminal)*
 
 <p align="center">
-  <img width="384" height="215" alt="image" src="https://github.com/user-attachments/assets/2df27557-42f8-470f-a550-c0eeff70ef97" />
+  <img width="100%" height="100%" alt="image" src="https://github.com/user-attachments/assets/2df27557-42f8-470f-a550-c0eeff70ef97" />
 </p>
