@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($user && password_verify($password, $user['password'])) {
             // Cập nhật trạng thái Online
             try {
-                $pdo->prepare("UPDATE users SET status = 'online' WHERE id = ?")->execute([$user['id']]);
+                $pdo->prepare("UPDATE account SET status = 'online' WHERE id = ?")->execute([$user['id']]);
             } catch (Exception $e) {}
 
             $_SESSION['user_id'] = $user['id'];

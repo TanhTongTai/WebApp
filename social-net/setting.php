@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_info'])) {
 
     // Xử lý upload ảnh nếu có file được chọn
     if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === 0) {
-        $upload_dir = 'uploads/';
+        $upload_dir = 'images/';
         $file_ext = strtolower(pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION));
         $allowed = ['jpg', 'jpeg', 'png', 'gif'];
 

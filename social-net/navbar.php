@@ -4,8 +4,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 // 2. Logic lấy Avatar thông minh (Kiểm tra cả jpg và png)
 $username = $_SESSION['username'] ?? 'default';
-$nav_img_jpg = "imagess/" . $username . ".jpg";
-$nav_img_png = "imagess/" . $username . ".png";
+$nav_img_jpg = "images/" . $username . ".jpg";
+$nav_img_png = "images/" . $username . ".png";
 
 if (file_exists($nav_img_jpg)) {
     $display_nav_img = $nav_img_jpg . "?t=" . time();
@@ -111,7 +111,7 @@ $bg_image = "images/background.jpg";
         <a href="about.php" class="nav-item <?= ($current_page == 'about.php') ? 'active' : '' ?>">Giới thiệu</a>
         <a href="friends.php" class="nav-item <?= ($current_page == 'friends.php') ? 'active' : '' ?>">Bạn bè</a>
         <a href="profile.php" class="nav-item <?= ($current_page == 'profile.php') ? 'active' : '' ?>">Hồ sơ</a>
-        <a href="setting.php" class="nav-item <?= ($current_page == 'setting_page.php') ? 'active' : '' ?>">Cài đặt</a>
+        <a href="setting.php" class="nav-item <?= ($current_page == 'setting.php') ? 'active' : '' ?>">Cài đặt</a>
 
         <div class="nav-user">
             <img src="<?= $display_nav_img ?>" class="nav-avatar-mini" alt="Avatar">

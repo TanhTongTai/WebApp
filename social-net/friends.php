@@ -59,8 +59,8 @@ $strangers = $stmt_find->fetchAll();
 
 // Hàm lấy ảnh nhanh cho danh sách
 function get_avatar($uname) {
-    $path = "uploads/$uname.jpg";
-    return file_exists($path) ? $path : "uploads/default.jpg";
+    $path = "images/$uname.jpg";
+    return file_exists($path) ? $path : "images/default.jpg";
 }
 ?>
 

@@ -55,6 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .alert { padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px; }
         .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
         .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        
+        /* PHẦN THÊM MỚI: CSS cho link đăng nhập */
+        .footer-link { text-align: center; margin-top: 20px; font-size: 14px; color: #666; }
+        .footer-link a { color: #1877f2; text-decoration: none; font-weight: bold; }
+        .footer-link a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -82,7 +87,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button type="submit">Gửi thông tin</button>
     </form>
+
+    <!-- PHẦN THÊM MỚI: Liên kết quay lại đăng nhập -->
+    <div class="footer-link">
+        Đã có tài khoản? <a href="../social-net/login.php">Đăng nhập ngay</a>
+    </div>
 </div>
 
 </body>
 </html>
+

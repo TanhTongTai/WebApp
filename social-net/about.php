@@ -1,7 +1,6 @@
 <?php
 session_start();
-// Trang này không nhất thiết phải đăng nhập mới xem được,
-// nhưng nếu bạn muốn chỉ thành viên mới xem được thì hãy giữ đoạn code bên dưới:
+// Kiểm tra đăng nhập để bảo vệ trang (tùy chọn theo đề bài)
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
@@ -13,100 +12,115 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới thiệu - My App</title>
+    <title>Giới thiệu - About Us</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            color: #333;
-        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; }
 
+        /* Container căn giữa card thông tin */
         .container {
             display: flex;
             justify-content: center;
-            padding: 50px 20px;
+            align-items: center;
+            min-height: calc(100vh - 65px);
+            padding: 20px;
+            box-sizing: border-box;
         }
 
+        /* Card thông tin sinh viên phong cách kính mờ */
         .about-card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            max-width: 600px;
-            width: 100%;
-            line-height: 1.6;
-        }
-
-        .about-card h1 {
-            color: #007bff;
-            margin-top: 0;
-            border-bottom: 2px solid #f0f2f5;
-            padding-bottom: 10px;
-        }
-
-        .about-card h2 {
-            font-size: 1.2rem;
-            color: #1c1e21;
-            margin-top: 25px;
-        }
-
-        .tech-stack {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .tech-item {
-            background: #e7f3ff;
-            color: #007bff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .footer-text {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #888;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             text-align: center;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #1c1e21;
+            margin-bottom: 30px;
+            font-size: 24px;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .student-info {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            font-size: 18px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .project-tag {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
 
-    <!-- Nhúng Navbar chung -->
-    <?php include 'navbar.php'; ?>
+    <!-- Nhúng Navbar dùng chung -->
+    <?php if(file_exists('navbar.php')) include 'navbar.php'; ?>
 
     <div class="container">
         <div class="about-card">
-            <h1>Về Dự Án Này</h1>
-            <p>Chào mừng bạn đến với <strong>My App</strong>. Đây là một hệ thống quản lý người dùng cơ bản được xây dựng để thực hành các kỹ năng lập trình web backend.</p>
+            <h2>Thông tin sinh viên</h2>
 
-            <h2>Chức năng chính:</h2>
-            <ul>
-                <li>Đăng ký và Đăng nhập bảo mật (mã hóa mật khẩu).</li>
-                <li>Quản lý hồ sơ cá nhân (Profile).</li>
-                <li>Chỉnh sửa thông tin và Đổi mật khẩu (Settings).</li>
-                <li>Hệ thống Session duy trì đăng nhập.</li>
-            </ul>
+            <div class="student-info">
+                <div class="info-item">
+                    <span class="label">Họ và tên</span>
+                    <span class="value">Hoàng Phúc Tuấn Anh</span>
+                </div>
 
-            <h2>Công nghệ sử dụng:</h2>
-            <div class="tech-stack">
-                <span class="tech-item">PHP 8.x</span>
-                <span class="tech-item">MariaDB / MySQL</span>
-                <span class="tech-item">PDO</span>
-                <span class="tech-item">HTML5 & CSS3</span>
+                <div class="info-item">
+                    <span class="label">Mã số sinh viên</span>
+                    <span class="value">1695092</span>
+                </div>
             </div>
 
-            <div class="footer-text">
-                Dự án được thực hiện bởi <strong>Tuấn Anh</strong> <br>
-                &copy; <?php echo date("Y"); ?> My App Project.
-            </div>
+            <p class="project-tag">Web Application Mock Project - SocialNet</p>
+            
+            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 25px 0;">
+            
+            <a href="home.php" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 14px;">
+                ← Quay lại Trang chủ
+            </a>
         </div>
     </div>
 
 </body>
 </html>
+
