@@ -75,10 +75,3 @@ Dưới đây là minh họa dữ liệu thực tế được trích xuất từ
 *(Ghi chú: Hình ảnh trích xuất từ lệnh SELECT thực tế trong Terminal)*
 
 
-
-
-
-
-- kKhông liên quan đến bài này, token for pushing origin main: 
-        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 (Personal use only)
-        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 (Personal use only)
