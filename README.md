@@ -74,5 +74,6 @@ Dưới đây là minh họa dữ liệu thực tế được trích xuất từ
 - **Bảng `friends`**: Lưu trữ các mối quan hệ kết bạn với các trạng thái `pending` (đang chờ) hoặc `accepted` (đã đồng ý).
 *(Ghi chú: Hình ảnh trích xuất từ lệnh SELECT thực tế trong Terminal)*
 
-<img width="384" height="215" alt="image" src="https://github.com/user-attachments/assets/2df27557-42f8-470f-a550-c0eeff70ef97" />
-
+<p align="center">
+  <img width="384" height="215" alt="image" src="https://github.com/user-attachments/assets/2df27557-42f8-470f-a550-c0eeff70ef97" />
+</p>
