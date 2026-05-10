@@ -72,8 +72,66 @@ Dưới đây là minh họa dữ liệu thực tế được trích xuất từ
 
 - **Bảng `account`**: Lưu trữ thông tin định danh, trạng thái `online/offline` và nội dung mô tả cá nhân (description).
 - **Bảng `friends`**: Lưu trữ các mối quan hệ kết bạn với các trạng thái `pending` (đang chờ) hoặc `accepted` (đã đồng ý).
-*(Ghi chú: Hình ảnh trích xuất từ lệnh SELECT thực tế trong Terminal)*
 
-<p align="center">
-  <img width="100%" height="100%" alt="image" src="https://github.com/user-attachments/assets/2df27557-42f8-470f-a550-c0eeff70ef97" />
-</p>
+┌──(tuananh26052005㉿Tanhh)-[~/WebApp]
+└─$ mysql -u ADMIN -p -h127.0.0.1
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 327
+Server version: 11.8.3-MariaDB-1+b1 from Debian -- Please help get to 10k stars at https://github.com/MariaDB/Server
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| infomation_db      |
+| information_schema |
+| lab4.1             |
+| mysql              |
+| performance_schema |
+| socialnet          |
+| sys                |
+| user_system        |
++--------------------+
+8 rows in set (0.020 sec)
+
+MariaDB [(none)]> use socialnet;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [socialnet]> show tables;
++---------------------+
+| Tables_in_socialnet |
++---------------------+
+| account             |
+| friends             |
++---------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [socialnet]> select* from account;
++----+-----------------+-------------------------+--------------------------------------------------------------+-------------------------------------------------------------------------------------------------+---------+-----------------+
+| id | username        | fullname                | password                                                     | description                                                                                     | status  | security_answer |
++----+-----------------+-------------------------+--------------------------------------------------------------+-------------------------------------------------------------------------------------------------+---------+-----------------+
+|  1 | admin_test      | Administrator Test      | $2y$10$89.P.A62J6P3J6.B6.F6.O6.J6.P.A62J6P3J6.B6.F6.O6.J6.   | Sample profile of ADMIN                                                                         | offline | my_secret       |
+|  2 | tuananh2605     | Tanh Tổng Tài           | $2y$12$/MC0s/hA26WwCR8tCNBqdeB9fqzHN0w1.OJVPxb.s7w.zPcMiKdOC | Hoang Phuc Tuan Anh    1695092/20239509
+26/05/2005
+Hanoi University of Science and Technology | online  | my_secret       |
+|  7 | tuananh26052005 | Hoàng Phúc Tuấn Anh     | $2y$12$cAQZ3mvywvd2DbPM5IdqpuJ2P9OLb61qBATn1B0baVD6sNn.gVQQ2 | Clone                                                                                           | offline | my_secret       |
+|  9 | tuananh260505   | Tuấn Anh                | $2y$12$evLu3/hlqG2KNz3vAjYPMuWHYe59HOhY5o2xVVfUZlocBSMdAGqKG | NULL                                                                                            | offline | my_secret       |
++----+-----------------+-------------------------+--------------------------------------------------------------+-------------------------------------------------------------------------------------------------+---------+-----------------+
+4 rows in set (0.001 sec)
+
+MariaDB [socialnet]> select* from friends;
++----+---------+-----------+----------+---------------------+
+| id | user_id | friend_id | status   | created_at          |
++----+---------+-----------+----------+---------------------+
+|  1 |       7 |         2 | accepted | 2026-05-10 17:04:12 |
+|  2 |       9 |         2 | pending  | 2026-05-10 17:05:43 |
+|  3 |       2 |         1 | pending  | 2026-05-10 17:22:09 |
++----+---------+-----------+----------+---------------------+
+3 rows in set (0.004 sec)
